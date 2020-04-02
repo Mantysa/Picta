@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+	<div class="card-body">
+		<p>
+		  <strong>Description:</strong>
+		  <%= @pic.description %>
+		</p>
+	</div>
+	<div class="card-footer">
+		<%= link_to 'Edit', edit_pic_path(@pic) %> |
+		<%= link_to 'Back', pics_path %>
+	</div>
+</div>

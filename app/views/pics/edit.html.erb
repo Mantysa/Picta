@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-header"><h1>Editing Pic</h1></div>
+
+  <div class="card-body">
+	<%= render 'form', pic: @pic %>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Show', @pic %> |
+	<%= link_to 'Back', pics_path %>
+  </div>
+</div>
