@@ -1,5 +1,7 @@
 class PicsController < ApplicationController
   before_action :set_pic, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /pics
   # GET /pics.json
@@ -14,7 +16,7 @@ class PicsController < ApplicationController
 
   # GET /pics/new
   def new
-    @pic = Pic.new
+    @pic = current_user.pics.build
   end
 
   # GET /pics/1/edit
@@ -24,7 +26,7 @@ class PicsController < ApplicationController
   # POST /pics
   # POST /pics.json
   def create
-    @pic = Pic.new(pic_params)
+    @pic = current_user.pics.build(pic_params)
 
     respond_to do |format|
       if @pic.save
@@ -70,5 +72,10 @@ class PicsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def pic_params
       params.require(:pic).permit(:description)
+    end
+
+    def correct_user
+      @pic = current_user.pics.find_by(id: params[:id])
+      redirect_to pics_path, notice: "You do not have permission to edit this pic." if @pic.nil?
     end
 end
