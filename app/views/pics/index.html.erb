@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div id="pics" class="jumbotron">
   <% @pics.each do |pic| %>
     <div class="box">
@@ -18,3 +16,6 @@
     </div>
   <% end %>
 </div>
+
+<%= will_paginate @pics, renderer: BootstrapPagination::Rails %>
+
