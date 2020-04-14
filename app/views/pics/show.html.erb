@@ -1,17 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<div class="card">
-	<div class="card-body">
-		<p>
-		  <%= image_tag @pic.avatar.variant(resize_to_limit: [300, 300]) %>
-		  <strong>Description:</strong>
-		  <%= @pic.description %>
-		</p>
-	</div>
-	<div class="card-footer">
-		<% if @pic.user == current_user %>
-			<%= link_to 'Edit', edit_pic_path(@pic) %> |
-		<% end %>
-		<%= link_to 'Back', pics_path %>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="card">
+			<div class="panel-header center">
+				<%= image_tag @pic.avatar.variant(resize_to_limit: [300, 300]) %>
+			</div>
+			<div class="card-body">
+				<%= @pic.description %>
+				<% if @pic.user == current_user %>
+					<%= link_to 'Edit', edit_pic_path(@pic) %> |
+				<% end %>
+				<%= link_to 'Back', pics_path %>
+			</div>
+		</div>
 	</div>
 </div>
