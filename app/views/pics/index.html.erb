@@ -5,6 +5,7 @@
         <%= link_to image_tag(pic.avatar.variant(resize_to_limit: [100, 100])), pic %><br/>
         <div class="card-body">
           <%= pic.description %><br/>
+          <strong><%= pic.user.name if pic.user %></strong><br/>
         </div>
         <% if pic.user == current_user %>
           <div class="card-footer">
