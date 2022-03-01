@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise', '~> 4.2'
 
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
